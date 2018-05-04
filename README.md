@@ -10,9 +10,9 @@ BadamSdk(下称SDK) 包含中国地区, 和海外地区两个版本,不同版本
 ### 版本号-目录版本号
 SDK 包含多个版本, 下面这个表格简单明了地给出不不同版本同目录的对应关系
 
-目录名称| SDK 版本|当前SDK版本号
---- | --- | ---
-chinaDemo|中国(新疆)地区|202
+目录名称| SDK 版本|当前SDK版本号|接入文档
+--- | --- | --- | ---
+chinaDemo|中国(新疆)地区|202|[README.md](https://github.com/BadamSDK/ClientEclipse/chinaDemo/README.md)
 
 ### 中国地区版本
 中国地区版本主要包含
