@@ -10,6 +10,3 @@ SDK 包含多个版本, 下面这个表格简单明了地给出不不同版本�
 目录名称| SDK 版本|当前SDK版本号|接入文档
 --- | --- | --- | ---
 chinaDemo|中国(新疆)地区|202|[README.md](https://github.com/BadamSDK/ClientEclipse/blob/master/chinaDemo/README.md)
-
-### 中国地区版本
-中国地区版本主要包含
