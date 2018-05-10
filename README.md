@@ -1,3 +1,6 @@
+## SDK 获取
+本项目目录 `chinaDemo/BadamSdkLib` 下的文件为接入所需要的 .jar 包和所需的资源文件
+
 ## 巴达木(Badam)SDK Ecilpse 接入 demo
 BadamSdk(下称SDK) 包含中国地区, 和海外地区两个版本,不同版本接入时有差异，请CP接入时选择对应的地区版本即可。
 
