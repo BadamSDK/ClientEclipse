@@ -2,6 +2,7 @@ package com.game.ziipin.badamsdkv2;
 
 import android.app.Application;
 
+//import com.squareup.leakcanary.LeakCanary;
 import com.ziipin.pay.sdk.library.BadamSdk;
 import com.ziipin.pay.sdk.library.common.BadamContant;
 import com.ziipin.pay.sdk.library.utils.Logger;
@@ -21,8 +22,16 @@ public class BaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Logger.setEnable(true);
         BadamSdk.getInstance().initApplication(this, mAppId, mApiSecret);
+        // 仅单机需要接入闪屏广告，非单机请不要调用下面这一行，单机游戏调用下面这一行时, 同时需要参考 AndroidManitest.xml 中
+        // 关于闪屏 activity 的配置信息
         BadamSdk.getInstance().splashTo(MainActivity.class);
+
+        /*if(LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);*/
     }
 
     @Override

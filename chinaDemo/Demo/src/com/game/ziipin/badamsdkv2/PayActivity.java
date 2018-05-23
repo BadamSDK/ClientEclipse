@@ -37,7 +37,7 @@ public class PayActivity extends Activity implements PayResultListener, InitList
     private EditText mAmountEdit;
     private String mOpenId;
 
-    BadamSdk sdk = (BadamSdk)BadamSdk.getInstance();
+    private BadamSdk sdk = (BadamSdk)BadamSdk.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
