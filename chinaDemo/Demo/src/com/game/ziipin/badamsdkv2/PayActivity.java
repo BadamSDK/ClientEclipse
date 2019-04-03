@@ -6,16 +6,16 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abc.def.ghi.InitListener;
 import com.abc.def.ghi.PayResultListener;
 import com.abc.def.ghi.Utils;
-import com.ziipin.pay.sdk.library.BadamSdk;
+import com.ziipin.pay.sdk.library.*;
+import com.ziipin.pay.sdk.library.common.BadamContant;
 import com.ziipin.pay.sdk.library.modle.User;
-import com.ziipin.pay.sdk.publish.common.AccountManager;
-
-import java.util.Locale;
+import com.ziipin.pay.sdk.publish.common.AccountManager;import java.util.Locale;
 
 /**
  * 测试支付的 Demo， 需要注意的是：<ul>
@@ -23,6 +23,7 @@ import java.util.Locale;
  * 不需要实际支付 Money。在点击支付成功时后台也会给你们但服务器发送回调</b></li>
  * <li>只有在支付成功时支付后台才会给你们的服务器发送支付回调，所以在本 activity 中接收到支付结果为成功时请到你们的服务器核查支付结果</li>
  * </ul>
+ * 需要在对应的方法中调用 {@link BadamSdk#onResume(Activity)}, {@link BadamSdk#onPause(Activity)}, {@link BadamSdk#onDestroy(Activity)} 和 {@link BadamSdk#onActivityResult(int, int, Intent)} 这几个方法
  * 作者:邱雷(Hanker) on 17/11/22 14:47.<br />
  * Email:qiulei@ziipin.com
  */
@@ -77,6 +78,10 @@ public class PayActivity extends Activity implements PayResultListener, InitList
         // 支付初始化
         sdk.initActivity(this, BaseApp.LANG, this);
 
+        TextView text = (TextView) findViewById(R.id.textView);
+        text.setText("APP_ID:" + BadamContant.EXTRA_APP_ID + ", SUB:" + BaseApp.APP_ID);
+
+
     }
 
     @Override
@@ -120,10 +125,9 @@ public class PayActivity extends Activity implements PayResultListener, InitList
     public void onPayCash(View v) {
         // 支付现金
         if (updateMoney()){
-            sdk.payCash(this, mAppOrder, mAmount, mGoodsName, mUserData, mOpenId,this);
+            sdk.payCash(this,mAppOrder, mAmount, mGoodsName, mUserData, mOpenId,this);
         }
     }
-
     @Override
     public void onPayResult(String orderId, int resultCode, int errorCode, String message) {
         String text = String.format(Locale.CHINESE, "%d - %s - %s", errorCode, message, orderId);
